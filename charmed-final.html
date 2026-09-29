@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Charmed ♡ — Handmade Beaded Charms</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5OCIgZmlsbD0iI2M4MTAyZSIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iODgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwZTZkMyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8dGV4dCB4PSIxMDAiIHk9Ijk1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiNmMGU2ZDMiIGxldHRlci1zcGFjaW5nPSIzIj5DSEFSTUVEPC90ZXh0PgogIDx0ZXh0IHg9IjEwMCIgeT0iMTIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2YwZTZkMyI+U3RydW5nIHdpdGggbG92ZSDimaE8L3RleHQ+Cjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Outfit:wght@300;400;500;600&family=Sacramento&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; scroll-behavior: smooth; }
+  body { background: #fff4dd; font-family: 'Outfit', sans-serif; color: #1c1614; overflow-x: hidden; }
+  @keyframes ch-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes spin-badge { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+   @keyframes wiggle { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(-6deg)} }
+  @keyframes wiggle2 { 0%,100%{transform:rotate(7deg)} 50%{transform:rotate(8.5deg)} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes ch-scroll-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes ch-scroll-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+
+  /* ── Charm float pills ── */
+  .charm-pill {
+    position: absolute;
+    left: var(--x);
+    bottom: -50px;
+    transform-origin: center;
+    background: #c8102e;
+    color: #fff4dd;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 8px 16px;
+    border-radius: 999px;
+    white-space: nowrap;
+    scale: var(--scale);
+    animation: pill-float var(--dur) ease-in-out var(--delay) infinite,
+               pill-sway calc(var(--dur) * 0.6) ease-in-out var(--delay) infinite;
+    box-shadow: 0 4px 16px rgba(200,16,46,0.25);
+  }
+  .charm-pill--dark {
+    background: #1c1614;
+    color: #fff4dd;
+    box-shadow: 0 4px 16px rgba(28,22,20,0.2);
+  }
+  .charm-pill--gold {
+    background: #ffd84d;
+    color: #1c1614;
+    box-shadow: 0 4px 16px rgba(255,216,77,0.35);
+  }
+  @keyframes pill-float {
+    0%   { bottom: -50px; opacity: 0; }
+    8%   { opacity: 1; }
+    85%  { opacity: 1; }
+    100% { bottom: 130px; opacity: 0; }
+  }
+  @keyframes pill-sway {
+    0%,100% { margin-left: 0px; }
+    25%     { margin-left: 18px; }
+    75%     { margin-left: -18px; }
+  }
+  /* ── Wave ribbon ── */
+  @keyframes wave-drift { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .wave-spark {
+    animation: spark-pulse 2s ease-in-out infinite;
+  }
+  @keyframes spark-pulse {
+    0%,100% { opacity: 0.6; transform: scale(1); }
+    50%     { opacity: 1; transform: scale(1.3); }
+  }
+  a { color: inherit; text-decoration: none; }
+  .ch-link:hover { color: #c8102e; }
+  .ch-btn { transition: transform .15s ease, box-shadow .15s ease; cursor: pointer; text-decoration: none; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 700; }
+  .ch-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.18) !important; }
+  .ch-tile { transition: transform .25s ease; box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+  .ch-tile:hover { transform: scale(1.015); }
+
+
+  /* ─── Collection tabs ─── */
+  .coll-tab-btn{font-family:'Bricolage Grotesque';font-weight:700;font-size:13px;padding:9px 20px;border:none;border-radius:999px;cursor:pointer;background:transparent;color:#6a625c;transition:background .2s,color .2s;}
+  .coll-tab-btn.active{background:#c8102e;color:#fff4dd;}
+  /* ─── Option A: polaroid scatter ─── */
+  .pol-grid{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;}
+  .pol-card{background:#fff;padding:10px 10px 30px;transform:rotate(var(--rot));box-shadow:0 8px 28px rgba(0,0,0,0.13);transition:transform .25s ease,box-shadow .25s ease;cursor:pointer;animation:pol-fadein 0.5s ease both;animation-delay:var(--delay);width:160px;flex-shrink:0;}
+  .pol-card:hover{transform:rotate(0deg) scale(1.08);box-shadow:0 16px 40px rgba(0,0,0,0.22);z-index:10;position:relative;}
+  .pol-img{width:140px;height:140px;overflow:hidden;}
+  .pol-img img{width:100%;height:100%;object-fit:cover;}
+  .pol-label{font-family:'Sacramento';font-size:17px;color:#1c1614;text-align:center;margin-top:8px;line-height:1.2;}
+  @keyframes pol-fadein{from{opacity:0;transform:rotate(var(--rot)) translateY(14px)}to{opacity:1;transform:rotate(var(--rot)) translateY(0)}}
+  /* ─── Option B: cinematic scroll ─── */
+  .cin-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;cursor:grab;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:8px;}
+  .cin-track::-webkit-scrollbar{display:none;}
+  .cin-track:active{cursor:grabbing;}
+  .cin-card{flex-shrink:0;width:280px;height:360px;position:relative;border-radius:20px;overflow:hidden;scroll-snap-align:start;box-shadow:0 8px 28px rgba(0,0,0,0.15);animation:cin-fadein 0.4s ease both;animation-delay:var(--delay);}
+  .cin-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+  .cin-card:hover img{transform:scale(1.06);}
+  .cin-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(28,22,20,0.85));color:#fff4dd;font-family:'Bricolage Grotesque';font-weight:700;font-size:15px;padding:24px 14px 14px;transform:translateY(100%);transition:transform .3s ease;}
+  .cin-card:hover .cin-label{transform:translateY(0);}
+  @keyframes cin-fadein{from{opacity:0;transform:translateX(30px)}to{opacity:1;transform:translateX(0)}}
+  /* ─── Option C: category grid ─── */
+  .cat-label{font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;margin-bottom:16px;letter-spacing:-0.01em;}
+  .cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-bottom:8px;}
+  .cat-card{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1;box-shadow:0 4px 14px rgba(0,0,0,0.1);cursor:pointer;}
+  .cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease;}
+  .cat-card:hover img{transform:scale(1.08);}
+  .cat-card span{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(28,22,20,0.8));color:#fff;font-family:'Bricolage Grotesque';font-weight:700;font-size:12px;padding:16px 8px 8px;text-align:center;}
+
+
+  /* ─── Collapsible category ─── */
+  .acc-block { border-radius: 20px; overflow: hidden; box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+  .acc-trigger {
+    width: 100%; display: flex; align-items: center; gap: 14px;
+    background: #fff; color: #1c1614; border: none; cursor: pointer;
+    padding: 20px 28px; font-family: 'Bricolage Grotesque'; text-align: left;
+    transition: background .2s;
+    border-bottom: 1.5px solid #f0e8d8;
+  }
+  .acc-trigger:hover { background: #fdf8f0; }
+  .acc-icon  { font-size: 20px; color: #c8102e; }
+  .acc-title { font-weight: 800; font-size: 22px; flex: 1; color: #1c1614; }
+  .acc-count { font-size: 13px; color: #9a908a; font-weight: 500; background: #f5ede0; padding: 4px 12px; border-radius: 999px; }
+  .acc-chevron { font-size: 13px; color: #c8102e; transition: transform .3s ease; }
+  .acc-chevron.closed { transform: rotate(180deg); }
+  .acc-body {
+    background: #fff;
+    overflow: hidden;
+    max-height: 2000px;
+    transition: max-height .5s cubic-bezier(0.4,0,0.2,1), padding .4s ease;
+    padding: 24px;
+  }
+  .acc-body.closed { max-height: 0; padding: 0 24px; }
+  /* ─── Photo grid ─── */
+  .cc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+    gap: 14px;
+  }
+  .cc-card {
+    position: relative; border-radius: 16px; overflow: hidden;
+    aspect-ratio: 1; box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    cursor: pointer; transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .cc-card:hover { transform: scale(1.04); box-shadow: 0 10px 28px rgba(0,0,0,0.18); }
+  .cc-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cc-card span {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(28,22,20,0.82));
+    color: #fff; font-family: 'Bricolage Grotesque'; font-weight: 700;
+    font-size: 12px; padding: 20px 8px 9px; text-align: center;
+    transform: translateY(100%); transition: transform .25s ease;
+  }
+  .cc-card:hover span { transform: translateY(0); }
+
+  /* placeholder images */
+  .ph {
+    width: 100%; height: 100%;
+    background: #f0e8d0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 8px; border: 1px dashed #c8b89a; color: #9a8878; font-size: 13px;
+    font-family: 'Bricolage Grotesque', sans-serif; font-weight: 600; text-align: center;
+    padding: 12px;
+  }
+  .ph span:first-child { font-size: 28px; }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s ease, transform .65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* mobile nav */
+  #mobile-menu { display: none; }
+  @media (max-width: 768px) {
+    .desk-nav { display: none !important; }
+    #mobile-menu { display: block; }
+    .hero-grid { grid-template-columns: 1fr !important; }
+    .hero-polaroids { height: 340px !important; }
+    .hero-polaroids .back-pol { display: none !important; }
+    .hero-polaroids .front-pol { width: 240px !important; }
+    .shop-grid { grid-template-columns: 1fr 1fr !important; }
+    .builder-grid { grid-template-columns: 1fr !important; }
+    .preview-sticky { position: static !important; }
+    .gallery-grid { grid-template-columns: 1fr 1fr !important; }
+    .about-grid { grid-template-columns: 1fr !important; }
+    h1 { font-size: 52px !important; }
+    h2 { font-size: 34px !important; }
+    .footer-cta { font-size: 36px !important; }
+  }
+.ch-link { text-decoration: none; color: #1c1614; position: relative; }
+  .ch-link::after { content: ''; position: absolute; bottom: -2px; left: 50%; right: 50%; height: 2px; background: #c8102e; transition: left .2s ease, right .2s ease; }
+  .ch-link:hover::after { left: 0; right: 0; }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<div id="navbar" style="position: sticky; top: 0; z-index: 50; background: #fff4dd; border-bottom: 2px solid #1c1614; transition: padding .2s ease;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between;">
+    <a href="#top"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5OCIgZmlsbD0iI2M4MTAyZSIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iODgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwZTZkMyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8dGV4dCB4PSIxMDAiIHk9Ijk1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiNmMGU2ZDMiIGxldHRlci1zcGFjaW5nPSIzIj5DSEFSTUVEPC90ZXh0PgogIDx0ZXh0IHg9IjEwMCIgeT0iMTIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2YwZTZkMyI+U3RydW5nIHdpdGggbG92ZSDimaE8L3RleHQ+Cjwvc3ZnPg==" style="height:56px;width:56px;object-fit:contain;display:block;"></a>
+    <div class="desk-nav" style="display: flex; align-items: center; gap: 6px; font-family: 'Bricolage Grotesque'; font-weight: 600; font-size: 14px;">
+      <a class="ch-link" href="#shop" style="padding: 9px 14px;">Shop</a>
+   
+      <a class="ch-link" href="#custom" style="padding: 9px 14px;">Customize</a>
+      <a class="ch-link" href="#gallery" style="padding: 9px 14px;">Gallery</a>
+      <a class="ch-link" href="#about" style="padding: 9px 14px;">About</a>
+      <a class="ch-btn" href="https://instagram.com/charmed._99" target="_blank" style="margin-left: 6px; padding: 10px 18px; background: #c8102e; color: #fff4dd; border-radius: 999px; display:inline-block;">DM to Order</a>
+    </div>
+    <!-- hamburger -->
+    <button id="mobile-menu" onclick="toggleMobileNav()" style="background:none;border:none;cursor:pointer;padding:8px;display:none;">
+      <div style="width:24px;height:2px;background:#1c1614;margin:5px 0;transition:.2s"></div>
+      <div style="width:24px;height:2px;background:#1c1614;margin:5px 0;transition:.2s"></div>
+      <div style="width:24px;height:2px;background:#1c1614;margin:5px 0;transition:.2s"></div>
+    </button>
+  </div>
+  <!-- mobile dropdown -->
+  <div id="mobile-nav" style="display:none; border-top:2px solid #1c1614; background:#fff4dd;">
+    <div style="display:flex;flex-direction:column;padding:12px 32px 20px;gap:4px;font-family:'Bricolage Grotesque';font-weight:600;">
+      <a href="#shop" onclick="closeMobileNav()" style="padding:10px 0;border-bottom:1px solid #eadfca;">Shop</a>
+      <a href="#custom" onclick="closeMobileNav()" style="padding:10px 0;border-bottom:1px solid #eadfca;">Customize</a>
+      <a href="#gallery" onclick="closeMobileNav()" style="padding:10px 0;border-bottom:1px solid #eadfca;">Gallery</a>
+      <a href="#about" onclick="closeMobileNav()" style="padding:10px 0;border-bottom:1px solid #eadfca;">About</a>
+      <a href="https://instagram.com/charmed._99" target="_blank" style="margin-top:12px;padding:12px 20px;background:#c8102e;color:#fff4dd;border:none;border-radius:999px;text-align:center;box-shadow:0 4px 14px rgba(200,16,46,0.3);">DM to Order →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<div id="top" style="max-width: 1200px; margin: 0 auto; padding: 56px 32px 64px; display: grid; grid-template-columns: 1.02fr 0.98fr; gap: 40px; align-items: center;" class="hero-grid">
+  <div style="animation: fadeUp .8s ease forwards;">
+    <div style="display: inline-flex; align-items: center; gap: 8px; background: #ffd84d; border-radius: 999px; padding: 7px 15px; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 13px; margin-bottom: 26px;">✨ thoughtfully handcrafted beaded charms</div>
+    <h1 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 88px; line-height: 0.92; letter-spacing: -0.035em; margin: 0 0 22px;">your initial,<br>but make it<br><span style="color: #c8102e;">sparkle.</span></h1>
+    <p style="font-size: 18px; line-height: 1.6; font-weight: 400; color: #4a423d; max-width: 400px; margin: 0 0 32px;">Beaded letter charms, bag charms &amp; tiny treasures. Pick a letter, stack your charms, clip it onto whatever you love most.</p>
+    <div style="display: flex; gap: 13px; flex-wrap: wrap;">
+      <a class="ch-btn" href="#shop" style="background: #1c1614; color: #fff4dd; padding: 15px 28px; border: none; border-radius: 999px; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 16px; display:inline-block; box-shadow: 0 4px 20px rgba(28,22,20,0.25);">Shop the Alphabet</a>
+      <a class="ch-btn" href="#custom" style="background: transparent; color: #1c1614; padding: 15px 28px; border: 1.5px solid #1c1614; border-radius: 999px; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 16px; display:inline-block;">Build Your Own →</a>
+    </div>
+  </div>
+
+  <!-- polaroid cluster -->
+  <div class="hero-polaroids" style="position: relative; height: 540px;">
+    <!-- back polaroid -->
+    <div class="back-pol" style="position: absolute; top: 70px; right: 18px; width: 250px; background: #fff; padding: 12px 12px 0; box-shadow: 0 10px 24px rgba(0,0,0,.16); animation: wiggle2 4s ease-in-out infinite;">
+      <img src="https://drive.google.com/thumbnail?id=1RB3Z_o5bG48Qv7tous6gstd5jMDEsho7&sz=w600" style="width:100%;height:250px;object-fit:cover;display:block;">
+      <div style="font-family: 'Sacramento'; font-size: 26px; color: #c8102e; text-align: center; padding: 4px 0 10px;">so sweet ♡</div>
+    </div>
+    <!-- front polaroid -->
+    <div class="front-pol" style="position: absolute; top: 30px; left: 4px; width: 320px; background: #fff; padding: 14px 14px 0; box-shadow: 0 16px 36px rgba(0,0,0,.2); animation: wiggle 4.5s ease-in-out infinite;">
+      <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%) rotate(-3deg); background: rgba(255,216,77,.85); border: 1.5px solid #1c1614; width: 90px; height: 26px;"></div>
+      <img src="https://drive.google.com/thumbnail?id=1Yte7cZL4Uddc53WFXvKvx-wp9Ua43VZz&sz=w800" style="width:100%;height:360px;object-fit:cover;display:block;">
+      <div style="font-family: 'Sacramento'; font-size: 30px; color: #c8102e; text-align: center; padding: 6px 0 12px;">strung with love</div>
+    </div>
+    <!-- stickers -->
+    <div style="position: absolute; top: 6px; right: 56px; background: #fff; border-radius: 999px; padding: 8px 14px; font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 13px; transform: rotate(9deg); z-index: 5;">100% handmade</div>
+    <div style="position: absolute; bottom: 26px; left: 0; background: #c8102e; color: #fff4dd; border-radius: 999px; padding: 8px 14px; font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 13px; transform: rotate(-8deg); z-index: 5;">A–Z ♡</div>
+  </div>
+</div>
+
+<!-- ===================== MARQUEE ===================== -->
+<div style="background:#c8102e;color:#fff4dd;overflow:hidden;white-space:nowrap;padding:11px 0;">
+  <div style="display:inline-block;animation:ch-marquee 18s linear infinite;font-family:'Bricolage Grotesque';font-weight:700;font-size:15px;letter-spacing:0.06em;">
+    <span style="padding:0 28px;">★ HANDMADE WITH LOVE</span><span style="padding:0 28px;">♡ MADE TO ORDER</span><span style="padding:0 28px;">✦ FULLY CUSTOM CHARMS</span><span style="padding:0 28px;">✿ MADE IN SURAT</span><span style="padding:0 28px;">★ DM TO ORDER</span><span style="padding:0 28px;">♡ STRUNG WITH LOVE</span><span style="padding:0 28px;">✦ TOO CUTE TO GIFT</span><span style="padding:0 28px;">★ SHIPS FAST</span><span style="padding:0 28px;">♡ HANDMADE WITH LOVE</span><span style="padding:0 28px;">✦ MADE TO ORDER</span><span style="padding:0 28px;">✿ FULLY CUSTOM CHARMS</span><span style="padding:0 28px;">★ MADE IN SURAT</span><span style="padding:0 28px;">♡ DM TO ORDER</span><span style="padding:0 28px;">✦ STRUNG WITH LOVE</span>
+  </div>
+</div>
+
+<!-- ===================== SHOP ===================== -->
+<div id="shop" style="background: #fafaf8; border-top: 2px solid #1c1614; border-bottom: 2px solid #1c1614;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 64px 32px;">
+    <div class="reveal" style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 36px;">
+      <div>
+        <div style="font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #c8102e; margin-bottom: 8px;">the collection</div>
+        <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 46px; letter-spacing: -0.03em; margin: 0;">shop the charms</h2>
+      </div>
+      <div style="font-size: 15px; color: #6a625c; max-width: 320px;">Everything is made to order, by hand. Found something? DM us your pick &amp; we'll get crafting.</div>
+    </div>
+
+    <div class="shop-grid reveal" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <!-- card 1 -->
+      <div class="ch-tile" style="background: #fff4dd; border-radius: 20px; overflow: hidden;">
+        <div style="aspect-ratio: 1; overflow: hidden; border-bottom: 2px solid #1c1614;"><img src="https://drive.google.com/thumbnail?id=1G1ypvy62yKMECWHhT1aRAN-zQwbqLCHD&sz=w600" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="padding: 16px 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+            <span style="font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 18px;">Beaded letter charm</span>
+            <span style="background: #ffd84d; border-radius: 999px; transform:rotate(-2deg);display:inline-block; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 11px; padding: 4px 9px;">A–Z</span>
+          </div>
+          <p style="font-size: 14px; color: #6a625c; margin: 8px 0 14px;">Your initial, hand-set in sparkling beads. Pick any color.</p>
+          <a class="ch-btn" href="https://instagram.com/charmed._99" target="_blank" style="display: inline-block; background: #c8102e; color: #fff4dd; border-radius: 999px; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 13px; padding: 9px 16px;">DM to Order →</a>
+        </div>
+      </div>
+      <!-- card 2 -->
+      <div class="ch-tile" style="background: #fff4dd; border-radius: 20px; overflow: hidden;">
+        <div style="aspect-ratio: 1; overflow: hidden; border-bottom: 2px solid #1c1614;"><img src="https://drive.google.com/thumbnail?id=1DPDxd2742ce7FCugmw8IS-dVObe7SvPs&sz=w600" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="padding: 16px 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+            <span style="font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 18px;">Initial + birthstone</span>
+            <span style="background: #ffd84d; border-radius: 999px; transform:rotate(-2deg);display:inline-block; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 11px; padding: 4px 9px;">★</span>
+          </div>
+          <p style="font-size: 14px; color: #6a625c; margin: 8px 0 14px;">Letter charm paired with your birthstone &amp; a little dangle.</p>
+          <a class="ch-btn" href="https://instagram.com/charmed._99" target="_blank" style="display: inline-block; background: #c8102e; color: #fff4dd; border-radius: 999px; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 13px; padding: 9px 16px;">DM to Order →</a>
+        </div>
+      </div>
+      <!-- card 3 -->
+      <div class="ch-tile" style="background: #fff4dd; border-radius: 20px; overflow: hidden;">
+        <div style="aspect-ratio: 1; overflow: hidden; border-bottom: 2px solid #1c1614;"><img src="https://drive.google.com/thumbnail?id=1efTPOKRaddL_m1b_qEkIfcONUYafessf&sz=w600" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="padding: 16px 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+            <span style="font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 18px;">Bag charm set</span>
+            <span style="background: #ffd84d; border-radius: 999px; transform:rotate(-2deg);display:inline-block; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 11px; padding: 4px 9px;">new</span>
+          </div>
+          <p style="font-size: 14px; color: #6a625c; margin: 8px 0 14px;">Layered charms &amp; chains to dress up any handbag.</p>
+          <a class="ch-btn" href="https://instagram.com/charmed._99" target="_blank" style="display: inline-block; background: #c8102e; color: #fff4dd; border-radius: 999px; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 13px; padding: 9px 16px;">DM to Order →</a>
+        </div>
+      </div>
+      <!-- card 4 -->
+      <div class="ch-tile" style="background: #fff4dd; border-radius: 20px; overflow: hidden;">
+        <div style="aspect-ratio: 1; overflow: hidden; border-bottom: 2px solid #1c1614;"><img src="https://drive.google.com/thumbnail?id=1tUpE1lvj2LFwm9mR5zy89owbTbvqEF2N&sz=w600" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="padding: 16px 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+            <span style="font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 18px;">Pastel letter charm</span>
+            <span style="background: #ffd84d; border-radius: 999px; transform:rotate(-2deg);display:inline-block; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 11px; padding: 4px 9px;">♡</span>
+          </div>
+          <p style="font-size: 14px; color: #6a625c; margin: 8px 0 14px;">Soft, dreamy tones with a heart &amp; flower dangle.</p>
+          <a class="ch-btn" href="https://instagram.com/charmed._99" target="_blank" style="display: inline-block; background: #c8102e; color: #fff4dd; border-radius: 999px; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 13px; padding: 9px 16px;">DM to Order →</a>
+        </div>
+      </div>
+      <!-- card 5 -->
+      <div class="ch-tile" style="background: #fff4dd; border-radius: 20px; overflow: hidden;">
+        <div style="aspect-ratio: 1; overflow: hidden; border-bottom: 2px solid #1c1614;"><img src="https://drive.google.com/thumbnail?id=1YNiWmrcQlXuahyEEILeUWyq9Dd-KJgE5&sz=w600" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="padding: 16px 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+            <span style="font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 18px;">Beaded mini bag</span>
+            <span style="background: #ffd84d; border-radius: 999px; transform:rotate(-2deg);display:inline-block; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 11px; padding: 4px 9px;">★</span>
+          </div>
+          <p style="font-size: 14px; color: #6a625c; margin: 8px 0 14px;">A hand-beaded crossbody for going-out nights.</p>
+          <a class="ch-btn" href="https://instagram.com/charmed._99" target="_blank" style="display: inline-block; background: #c8102e; color: #fff4dd; border-radius: 999px; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 13px; padding: 9px 16px;">DM to Order →</a>
+        </div>
+      </div>
+      <!-- card 6 -->
+      <div class="ch-tile" style="background: #fff4dd; border-radius: 20px; overflow: hidden;">
+        <div style="aspect-ratio: 1; overflow: hidden; border-bottom: 2px solid #1c1614;"><img src="https://drive.google.com/thumbnail?id=1W2cnoNSYtpq0AtMCmMulchh7ecH3pl7i&sz=w600" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div style="padding: 16px 18px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+            <span style="font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 18px;">Gift box set</span>
+            <span style="background: #ffd84d; border-radius: 999px; transform:rotate(-2deg);display:inline-block; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 11px; padding: 4px 9px;">gift</span>
+          </div>
+          <p style="font-size: 14px; color: #6a625c; margin: 8px 0 14px;">A curated mix of charms, boxed up &amp; ready to gift.</p>
+          <a class="ch-btn" href="https://instagram.com/charmed._99" target="_blank" style="display: inline-block; background: #c8102e; color: #fff4dd; border-radius: 999px; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 13px; padding: 9px 16px;">DM to Order →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== PHOTO WALL ===================== -->
+<div id="custom" style="padding:72px 0 64px;background:#fff4dd;">
+  <div style="max-width:1300px;margin:0 auto;padding:0 32px;">
+
+    <div style="text-align:center;margin-bottom:52px;">
+      <div style="font-family:'Bricolage Grotesque';font-weight:700;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#c8102e;margin-bottom:8px;">the full collection</div>
+      <h2 style="font-family:'Bricolage Grotesque';font-weight:800;font-size:50px;letter-spacing:-0.03em;margin:0 0 10px;">Every Charm, Every Letter</h2>
+      <p style="font-size:17px;color:#6a625c;max-width:420px;margin:0 auto;">Each one is handmade with love — tap any to order yours ✨</p>
+    </div>
+
+    <!-- ── ALPHABET ── -->
+    <div class="acc-block" id="acc-alpha">
+      <button class="acc-trigger" onclick="toggleAcc('alpha')" aria-expanded="true">
+        <span class="acc-icon">✦</span>
+        <span class="acc-title">The Alphabet</span>
+        <span class="acc-count">22 letters</span>
+        <span class="acc-chevron" id="chev-alpha">▲</span>
+      </button>
+      <div class="acc-body" id="body-alpha">
+        <div class="cc-grid"><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1AiRCsrTNzefgB0osUh-9oFRYPmz9BxJo&sz=w400" alt="A" loading="lazy"><span>A</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1rIjUHsSFwadL-Ri1o3Q8HKc3VUzjvCwm&sz=w400" alt="B" loading="lazy"><span>B</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1Wa62ru2ZVpQwfNEEX5GtMftG9gBiE5WT&sz=w400" alt="C" loading="lazy"><span>C</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=17mOLIo9AI9zeCj0GLEPbzUU3zrfY6RKb&sz=w400" alt="D" loading="lazy"><span>D</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1YV9Wf09ui0sUGXhM94T0UQuU6lxcHecZ&sz=w400" alt="E" loading="lazy"><span>E</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1z18qfhNJg58hKdqAqNJXsUk84GqCKBzh&sz=w400" alt="F" loading="lazy"><span>F</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1lqL7vaEk66V-G_Q6JJUvv1rmO8bGU70i&sz=w400" alt="G" loading="lazy"><span>G</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1dZvDDWkoSy8EYe29mjT5kbib88qxL9e6&sz=w400" alt="H" loading="lazy"><span>H</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1R6xKRtbRmDXmmZqlG_kTQog8D0zN89Nr&sz=w400" alt="I" loading="lazy"><span>I</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1Su-w4NMG_x2beYC7oMaS8B0qKbRDMEHR&sz=w400" alt="J" loading="lazy"><span>J</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1vrrZVrZ2rFTtkks-if7K0-fA1enmwUPN&sz=w400" alt="K" loading="lazy"><span>K</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1gkeicxvgl-xz6z1bbXjryQ39GueFOOSe&sz=w400" alt="L" loading="lazy"><span>L</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1vb2tTcXFO7tRkPJRtRcD785scC4ADhSu&sz=w400" alt="M" loading="lazy"><span>M</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1Dr7e2aC3fOWTh4_ftjVq5ckm5_1DnpK_&sz=w400" alt="N" loading="lazy"><span>N</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=17ZZ1W0xsN_W2JlVfz_FdZhyQjxlwWHKc&sz=w400" alt="O" loading="lazy"><span>O</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1HygapnQK8BNK2qUxS5sJXwgc_rA-4dAy&sz=w400" alt="P" loading="lazy"><span>P</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1lCT4lKbHenSyo7hS8jatyAQVwS8uwO0b&sz=w400" alt="R" loading="lazy"><span>R</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1OC9khh2gMt9OdFHrYFY8XJnnQ4Z27_Kw&sz=w400" alt="T" loading="lazy"><span>T</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1b7I7NG9SaOd1UiiqjI20VmkvCW7wkxs4&sz=w400" alt="U" loading="lazy"><span>U</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1cyyntT40lpXG2lhuLC-XiQN1Fkej2EsL&sz=w400" alt="V" loading="lazy"><span>V</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1-vX1JYxUydyIXy-YcRdJ8qabBNnCJtN-&sz=w400" alt="W" loading="lazy"><span>W</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1LoOL_ETId6OVvLcQ0X7GFhtxgKYPp6iF&sz=w400" alt="Z" loading="lazy"><span>Z</span></div></div>
+      </div>
+    </div>
+
+    <!-- ── CHARMS ── -->
+    <div class="acc-block" id="acc-charms" style="margin-top:16px;">
+      <button class="acc-trigger" onclick="toggleAcc('charms')" aria-expanded="true">
+        <span class="acc-icon">♡</span>
+        <span class="acc-title">The Charms</span>
+        <span class="acc-count">32 designs</span>
+        <span class="acc-chevron" id="chev-charms">▲</span>
+      </button>
+      <div class="acc-body" id="body-charms">
+        <div class="cc-grid"><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1wyPfYhunkvZjBrHUoib4FTGGfTLN45WS&sz=w400" alt="Black Heart" loading="lazy"><span>Black Heart</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1bdQfkA0Ag6MmPfvES9qIdDCVkb_jp0sW&sz=w400" alt="White Hearts" loading="lazy"><span>White Hearts</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1sVPFIrnIwRR8qo9n-usz8vF8BqByzz3q&sz=w400" alt="Pink Heart" loading="lazy"><span>Pink Heart</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1isOpdB4O4yn1YO1rdHIBFv-JHijBg4BT&sz=w400" alt="White Heart" loading="lazy"><span>White Heart</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1NxZ3MZTFd8iaAFDS4ThTky9M4oHPHlOY&sz=w400" alt="Grey Heart" loading="lazy"><span>Grey Heart</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1gd4N39oDPAp-vIQ_OpLY1yHEh8cbpfEn&sz=w400" alt="Red Heart Set" loading="lazy"><span>Red Heart Set</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1f7QBUnMV7nxAhsQgvVdIXAk3Xh4bf1PL&sz=w400" alt="Red Hearts" loading="lazy"><span>Red Hearts</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1TZ_eLgP5KxGHP90Q4tjEg1AmehSt5E7Y&sz=w400" alt="Purple Hearts" loading="lazy"><span>Purple Hearts</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=17-G1DhCeWZaa6fwosd0kw1NLew5zJG20&sz=w400" alt="Gold Hearts" loading="lazy"><span>Gold Hearts</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1cODmJ_daTQhXx27Qv5BGNHPgJtSMMJXB&sz=w400" alt="Blue Star" loading="lazy"><span>Blue Star</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1k_OafgKfhKK0fEgp_fRkQHgRoHQ-po4W&sz=w400" alt="Light Blue Star" loading="lazy"><span>Light Blue Star</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1FgDoLW1yZXHG1QzlnQFIqsuaQh-4pYf1&sz=w400" alt="Lemon" loading="lazy"><span>Lemon</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1X7nKpwqaWpJHAk8ZHMLcWyay98WfVfXi&sz=w400" alt="Lemons" loading="lazy"><span>Lemons</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1QruT_1lGWQb4CQlX0k8KTKSEyrxJl6P8&sz=w400" alt="Red Tulip" loading="lazy"><span>Red Tulip</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1K9KauqewJ4YKeSG-ixtW1ypN8X3meG2c&sz=w400" alt="Pink Tulip" loading="lazy"><span>Pink Tulip</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1PdyatV104edv6zPV07rTrxvo8DILOip9&sz=w400" alt="Orange Tulip" loading="lazy"><span>Orange Tulip</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1iWzW5eDn9nsktBclOtEMysRZeo8Mmu1v&sz=w400" alt="Orange Tulip 2" loading="lazy"><span>Orange Tulip 2</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1e7DQBzw5Xghdmpfs7KZR4UsVMZln17Ld&sz=w400" alt="Orange Butterfly" loading="lazy"><span>Orange Butterfly</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1dK7Pb7s4IeFZSrQSoFrdt5AEgXXKkhN_&sz=w400" alt="Peach Butterfly" loading="lazy"><span>Peach Butterfly</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1VsuQmNNjnfGT2RC0af4NSrO38O0Za4Qy&sz=w400" alt="Blue Butterfly" loading="lazy"><span>Blue Butterfly</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=16332JZ_U8v9AWCdSe79xv3vpdM-LwV6t&sz=w400" alt="Yellow Butterfly" loading="lazy"><span>Yellow Butterfly</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1pz4Q9ZSd5BZfIHHksjXN5Z9NDK7XMBuG&sz=w400" alt="White Butterfly" loading="lazy"><span>White Butterfly</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1MS4ifw4ZmTNw77hlVoTvBKNqhteWX2Md&sz=w400" alt="Purple Bow" loading="lazy"><span>Purple Bow</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1bo4Q6xwFYKgKFUt487Vki4qflgc8JeJf&sz=w400" alt="Peach Bow" loading="lazy"><span>Peach Bow</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1TIOUmYijE3MfGCWrQyRLQ5QaDYntvo_q&sz=w400" alt="Red Bow" loading="lazy"><span>Red Bow</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1nrFJ0IQJJMFRraC1WgJzfYnYml3SS0HK&sz=w400" alt="Light Pink Bow" loading="lazy"><span>Light Pink Bow</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1zl27YhJJMbSMcDeoo0VNN0vYAq8cmcMm&sz=w400" alt="Black Bow" loading="lazy"><span>Black Bow</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1FUhzxUBfTkk6CLqLE6r3vlp-E9RS8xtQ&sz=w400" alt="White Bow" loading="lazy"><span>White Bow</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1QplImLNnqL1_DPa4PRh9AHRooXOuBdf5&sz=w400" alt="Dark Pink" loading="lazy"><span>Dark Pink</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1lJzD90fI66QBcSiltqrH27zYo6Xt21y7&sz=w400" alt="Car Keys" loading="lazy"><span>Car Keys</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1g0f4A5Sk8RQqUMgPpHC1pe8mS-J-xTiQ&sz=w400" alt="Lip Oil" loading="lazy"><span>Lip Oil</span></div><div class="cc-card"><img src="https://drive.google.com/thumbnail?id=1RB3Z_o5bG48Qv7tous6gstd5jMDEsho7&sz=w400" alt="Peach Heart" loading="lazy"><span>Peach Heart</span></div></div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:48px;">
+      <a class="ch-btn" href="https://instagram.com/charmed._99" target="_blank"
+         style="background:#c8102e;color:#fff4dd;padding:15px 32px;border-radius:999px;font-family:'Bricolage Grotesque';font-weight:700;font-size:16px;display:inline-block;box-shadow:0 4px 20px rgba(200,16,46,0.3);">Order On Instagram →</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===================== GALLERY ===================== -->
+<div id="gallery" style="background: #1c1614; color: #fff4dd; border-top: 2px solid #1c1614;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 64px 32px;">
+    <div class="reveal" style="display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 32px;">
+      <div>
+        <div style="font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #ff5a6e; margin-bottom: 8px;">from the gram</div>
+        <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 46px; letter-spacing: -0.03em; margin: 0;">@charmed._99</h2>
+      </div>
+      <a class="ch-btn" href="https://instagram.com/charmed._99" target="_blank" style="background: #fff4dd; color: #1c1614; border: 2px solid #fff4dd; border-radius: 999px; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 14px; padding: 12px 22px; display:inline-block;">Follow Us →</a>
+    </div>
+    <div class="gallery-grid reveal" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+      <a href="https://instagram.com/charmed._99" target="_blank" class="ch-tile" style="aspect-ratio: 1; overflow: hidden; border-radius: 10px; border: 2px solid #fff4dd; display:block;">
+        <img src="https://drive.google.com/thumbnail?id=1sVPFIrnIwRR8qo9n-usz8vF8BqByzz3q&sz=w500" style="width:100%;height:100%;object-fit:cover;">
+      </a>
+      <a href="https://instagram.com/charmed._99" target="_blank" class="ch-tile" style="aspect-ratio: 1; overflow: hidden; border-radius: 10px; border: 2px solid #fff4dd; display:block;">
+        <img src="https://drive.google.com/thumbnail?id=1NxZ3MZTFd8iaAFDS4ThTky9M4oHPHlOY&sz=w500" style="width:100%;height:100%;object-fit:cover;">
+      </a>
+      <a href="https://instagram.com/charmed._99" target="_blank" class="ch-tile" style="aspect-ratio: 1; overflow: hidden; border-radius: 10px; border: 2px solid #fff4dd; display:block;">
+        <img src="https://drive.google.com/thumbnail?id=162SOV1igcLswQGnesgIy4Yl7umC1M8sB&sz=w500" style="width:100%;height:100%;object-fit:cover;">
+      </a>
+      <a href="https://instagram.com/charmed._99" target="_blank" class="ch-tile" style="aspect-ratio: 1; overflow: hidden; border-radius: 10px; border: 2px solid #fff4dd; display:block;">
+        <img src="https://drive.google.com/thumbnail?id=1otSlYX65wU77ESCdvu6z7wV70Yaj5f6S&sz=w500" style="width:100%;height:100%;object-fit:cover;">
+      </a>
+      <a href="https://instagram.com/charmed._99" target="_blank" class="ch-tile" style="aspect-ratio: 1; overflow: hidden; border-radius: 10px; border: 2px solid #fff4dd; display:block;">
+        <img src="https://drive.google.com/thumbnail?id=1rQZG8uBk84aLL8md89vhku1XaafS-lto&sz=w500" style="width:100%;height:100%;object-fit:cover;">
+      </a>
+      <a href="https://instagram.com/charmed._99" target="_blank" class="ch-tile" style="aspect-ratio: 1; overflow: hidden; border-radius: 10px; border: 2px solid #fff4dd; display:block;">
+        <img src="https://drive.google.com/thumbnail?id=1hnGHT4L2v4-uTuRiqLJVpdtWJN3-mBcG&sz=w500" style="width:100%;height:100%;object-fit:cover;">
+      </a>
+      <a href="https://instagram.com/charmed._99" target="_blank" class="ch-tile" style="aspect-ratio: 1; overflow: hidden; border-radius: 10px; border: 2px solid #fff4dd; display:block;">
+        <img src="https://drive.google.com/thumbnail?id=1k_OafgKfhKK0fEgp_fRkQHgRoHQ-po4W&sz=w500" style="width:100%;height:100%;object-fit:cover;">
+      </a>
+      <a href="https://instagram.com/charmed._99" target="_blank" class="ch-tile" style="aspect-ratio: 1; overflow: hidden; border-radius: 10px; border: 2px solid #fff4dd; display:block;">
+        <img src="https://drive.google.com/thumbnail?id=1W7X3y8jQwzyY-UOqyBp1BuXoJztBvano&sz=w500" style="width:100%;height:100%;object-fit:cover;">
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== ABOUT ===================== -->
+<div id="about" style="background: #fff; border-top: 2px solid #1c1614; border-bottom: 2px solid #1c1614;">
+  <div class="about-grid reveal" style="max-width: 1200px; margin: 0 auto; padding: 70px 32px; display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center;">
+    <div style="position: relative;">
+      <div style="background: #fff; padding: 14px 14px 0; transform: rotate(-3deg); box-shadow: 0 14px 30px rgba(0,0,0,.16); max-width: 380px;">
+        <img src="https://drive.google.com/thumbnail?id=1gd4N39oDPAp-vIQ_OpLY1yHEh8cbpfEn&sz=w800" style="width:100%;height:360px;object-fit:cover;display:block;border:1px solid #eadfca;">
+        <div style="font-family: 'Sacramento'; font-size: 28px; color: #c8102e; text-align: center; padding: 6px 0 12px;">get charmed ♡</div>
+      </div>
+      <div style="position: absolute; bottom: -16px; right: 8px; background: #ffd84d; border-radius: 999px; padding: 8px 16px; font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 13px; transform: rotate(6deg);">made in surat</div>
+    </div>
+    <div>
+      <div style="font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #c8102e; margin-bottom: 10px;">our story</div>
+      <h2 style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 44px; letter-spacing: -0.03em; line-height: 1.02; margin: 0 0 18px;">little charms,<br>big meaning.</h2>
+      <p style="font-size: 17px; line-height: 1.65; color: #4a423d; margin: 0 0 18px; max-width: 520px;">Charmed is a tiny studio of hand-beaded charms made one bead at a time. Every letter, every dangle, every color is chosen to mean something — to you, or to whoever you're gifting it to.</p>
+      <p style="font-size: 17px; line-height: 1.65; color: #4a423d; margin: 0 0 26px; max-width: 520px;">We started at flea markets around Surat and we're still happiest meeting you in person — but now you can design yours from anywhere.</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <div style="background: #fff4dd; border-radius: 14px; padding: 12px 18px;"><span style="font-family:'Bricolage Grotesque'; font-weight:800; font-size:15px;">✿ Handmade to order</span></div>
+        <div style="background: #fff4dd; border-radius: 14px; padding: 12px 18px;"><span style="font-family:'Bricolage Grotesque'; font-weight:800; font-size:15px;">♡ Fully customizable</span></div>
+        <div style="background: #fff4dd; border-radius: 14px; padding: 12px 18px;"><span style="font-family:'Bricolage Grotesque'; font-weight:800; font-size:15px;">✨ Clip it anywhere</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CONTACT / FOOTER ===================== -->
+<div id="contact" style="background: #c8102e; color: #fff4dd;">
+  <div style="max-width: 1200px; margin: 0 auto; padding: 76px 32px; text-align: center;">
+    <div class="footer-cta reveal" style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 54px; letter-spacing: -0.03em; line-height: 0.98;">too cute to gift.</div>
+    <div class="footer-cta reveal" style="font-family: 'Bricolage Grotesque'; font-weight: 800; font-size: 54px; letter-spacing: -0.03em; line-height: 0.98; color: #ffd84d; margin-bottom: 18px;">too meaningful not to.</div>
+    <p class="reveal" style="font-size: 17px; opacity: .9; max-width: 420px; margin: 0 auto 30px;">DM us your order, your custom design, or a collab idea — we reply to every message. ♡</p>
+    <div class="reveal" style="display: flex; gap: 13px; justify-content: center; flex-wrap: wrap;">
+      <a class="ch-btn" href="https://instagram.com/charmed._99" target="_blank" style="background: #fff4dd; color: #c8102e; border-radius: 999px; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 16px; padding: 15px 30px; display:inline-block;">@charmed._99 →</a>
+      <a class="ch-btn" href="#custom" style="background: transparent; color: #fff4dd; border: 2px solid #fff4dd; border-radius: 999px; font-family: 'Bricolage Grotesque'; font-weight: 700; font-size: 16px; padding: 15px 30px; display:inline-block;">build your charm</a>
+    </div>
+  </div>
+  <div style="border-top: 2px solid #1c1614;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 22px 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-family: 'Bricolage Grotesque'; font-weight: 600; font-size: 14px;">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI5OCIgZmlsbD0iI2M4MTAyZSIvPgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iODgiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwZTZkMyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICA8dGV4dCB4PSIxMDAiIHk9Ijk1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMjgiIGZpbGw9IiNmMGU2ZDMiIGxldHRlci1zcGFjaW5nPSIzIj5DSEFSTUVEPC90ZXh0PgogIDx0ZXh0IHg9IjEwMCIgeT0iMTIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iR2VvcmdpYSwgc2VyaWYiIGZvbnQtc3R5bGU9Iml0YWxpYyIgZm9udC1zaXplPSIxNCIgZmlsbD0iI2YwZTZkMyI+U3RydW5nIHdpdGggbG92ZSDimaE8L3RleHQ+Cjwvc3ZnPg==" style="height:52px;width:52px;object-fit:contain;border:2px solid rgba(255,244,221,0.4);">
+      <span style="opacity: .85;">strung with love · made in surat</span>
+      <span style="opacity: .85;">DM for orders &amp; collabs</span>
+    </div>
+  </div>
+</div>
+
+<script>
+// ==================== CHARM BUILDER ====================
+const IG = 'https://instagram.com/charmed._99';
+const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+const COLORS = [
+  { name: 'Blush Pink', hex: '#e7a9b8' },
+  { name: 'Ruby Red', hex: '#9e0e24' },
+  { name: 'Champagne', hex: '#d8bd86' },
+  { name: 'Pearl White', hex: '#efe6d4' },
+  { name: 'Midnight', hex: '#2a2320' },
+];
+const CHARMS = [
+  { id: 'heart', glyph: '♥', label: 'Heart' },
+  { id: 'bow', glyph: '🎀', label: 'Bow' },
+  { id: 'star', glyph: '★', label: 'Star' },
+  { id: 'gem', glyph: '◆', label: 'Birthstone' },
+  { id: 'pearl', glyph: '○', label: 'Pearl' },
+  { id: 'sparkle', glyph: '✨', label: 'Sparkle' },
+];
+const CHAINS = [
+  { id: 'ring', label: 'O-ring keychain' },
+  { id: 'heartclasp', label: 'Heart clasp' },
+  { id: 'strap', label: 'Beaded strap' },
+];
+
+let state = { letter: 'C', colorIdx: 1, charmIds: ['heart', 'sparkle'], chainIdx: 0 };
+
+function setLetter(ch) { state.letter = ch; renderBuilder(); }
+function setColor(i) { state.colorIdx = i; renderBuilder(); }
+function setChain(i) { state.chainIdx = i; renderBuilder(); }
+function toggleCharm(id) {
+  const has = state.charmIds.includes(id);
+  if (has) state.charmIds = state.charmIds.filter(x => x !== id);
+  else if (state.charmIds.length < 3) state.charmIds.push(id);
+  renderBuilder();
+}
+
+function renderBuilder() {
+  const s = state;
+  const color = COLORS[s.colorIdx];
+
+  // Letter chips
+  const chipBase = "width:38px;height:38px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;cursor:pointer;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);transition:transform .12s;user-select:none;";
+  document.getElementById('letter-grid').innerHTML = LETTERS.map(ch =>
+    `<div class="ch-btn" onclick="setLetter('${ch}')" style="${chipBase}${ch===s.letter?'background:#c8102e;color:#fff4dd;':'background:#fff;color:#1c1614;'}">${ch}</div>`
+  ).join('');
+
+  // Color swatches
+  document.getElementById('color-grid').innerHTML = COLORS.map((c, i) =>
+    `<div class="ch-btn" title="${c.name}" onclick="setColor(${i})" style="width:42px;height:42px;border-radius:999px;cursor:pointer;background:${c.hex};${i===s.colorIdx?'border:3px solid #1c1614;box-shadow:0 0 0 3px #ffd84d;':'border:2px solid rgba(0,0,0,.25);'}transition:transform .12s;"></div>`
+  ).join('');
+
+  // Charm buttons
+  document.getElementById('charm-grid').innerHTML = CHARMS.map(c => {
+    const on = s.charmIds.includes(c.id);
+    return `<div class="ch-btn" onclick="toggleCharm('${c.id}')" style="display:flex;align-items:center;gap:7px;padding:9px 14px;border-radius:999px;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:14px;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);${on?'background:#ffd84d;':'background:#fff;'}"><span>${c.glyph}</span><span>${c.label}</span></div>`;
+  }).join('');
+
+  // Chain buttons
+  document.getElementById('chain-grid').innerHTML = CHAINS.map((c, i) =>
+    `<div class="ch-btn" onclick="setChain(${i})" style="padding:11px 12px;border-radius:12px;cursor:pointer;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:13px;text-align:center;border:none;box-shadow:0 2px 8px rgba(0,0,0,0.10);${i===s.chainIdx?'background:#1c1614;color:#fff4dd;':'background:#fff;color:#1c1614;'}">${c.label}</div>`
+  ).join('');
+
+  // Preview
+  document.getElementById('preview-letter').textContent = s.letter;
+  document.getElementById('preview-letter').style.color = color.hex;
+  document.getElementById('preview-glyphs').innerHTML = s.charmIds.map(id => `<span>${CHARMS.find(c=>c.id===id).glyph}</span>`).join('');
+
+  // Color name label
+  document.getElementById('color-name').textContent = color.name;
+  document.getElementById('charm-count').textContent = s.charmIds.length + '/3';
+
+  // Summary
+  document.getElementById('sum-letter').textContent = s.letter;
+  document.getElementById('sum-color').textContent = color.name;
+  document.getElementById('sum-charms').textContent = s.charmIds.length ? s.charmIds.map(id => CHARMS.find(c=>c.id===id).label).join(', ') : 'none yet';
+  document.getElementById('sum-chain').textContent = CHAINS[s.chainIdx].label;
+}
+
+// ==================== SCROLL REVEAL ====================
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ==================== COUNT UP ====================
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.done) {
+      e.target.dataset.done = '1';
+      const target = parseInt(e.target.dataset.target);
+      let current = 0;
+      const step = target / 40;
+      const timer = setInterval(() => {
+        current = Math.min(current + step, target);
+        e.target.textContent = Math.round(current);
+        if (current >= target) clearInterval(timer);
+      }, 30);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
+
+// ==================== MOBILE NAV ====================
+function toggleMobileNav() {
+  const nav = document.getElementById('mobile-nav');
+  nav.style.display = nav.style.display === 'none' ? 'block' : 'none';
+}
+function closeMobileNav() {
+  document.getElementById('mobile-nav').style.display = 'none';
+}
+
+// ==================== INIT ====================
+renderBuilder();
+</script>
+<script>
+function switchTab(id,btn){
+  document.querySelectorAll('.coll-tab').forEach(t=>t.style.display='none');
+  document.querySelectorAll('.coll-tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).style.display='block';
+  btn.classList.add('active');
+}
+(function(){
+  var el=document.getElementById('cin-track');
+  if(!el)return;
+  var isDown=false,startX,scrollLeft;
+  el.addEventListener('mousedown',function(e){isDown=true;startX=e.pageX-el.offsetLeft;scrollLeft=el.scrollLeft;});
+  el.addEventListener('mouseleave',function(){isDown=false;});
+  el.addEventListener('mouseup',function(){isDown=false;});
+  el.addEventListener('mousemove',function(e){if(!isDown)return;e.preventDefault();var x=e.pageX-el.offsetLeft;el.scrollLeft=scrollLeft-(x-startX)*1.5;});
+})();
+</script>
+<script>
+function toggleAcc(id) {
+  var body  = document.getElementById('body-'  + id);
+  var chev  = document.getElementById('chev-'  + id);
+  var btn   = body.previousElementSibling;
+  var open  = !body.classList.contains('closed');
+  if (open) {
+    body.classList.add('closed');
+    chev.classList.add('closed');
+    btn.setAttribute('aria-expanded','false');
+  } else {
+    body.classList.remove('closed');
+    chev.classList.remove('closed');
+    btn.setAttribute('aria-expanded','true');
+  }
+}
+</script>
+</body>
+</html>
